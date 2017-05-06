@@ -13,7 +13,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use('/', express.static(__dirname + '/app/public'));
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.use('/', htmlRoutes);
 app.use('/', apiRoutes);
