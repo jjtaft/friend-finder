@@ -1,8 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-var htmlRoutes = require('./app/routing/html-routes');
-var apiRoutes = require('./app/routing/api-routes');
+var htmlRoutes = require('./app/routing/htmlRoutes');
+var apiRoutes = require('./app/routing/apiRoutes');
 
 var app = express();
 var PORT = 3000;
