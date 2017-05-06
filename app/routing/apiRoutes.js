@@ -13,33 +13,15 @@ router.post('/api/friends', function(req, res) {
     var friends = jsonfile.readFileSync(file);
     var index = findFriend(req.body, friends);
     friends.push(req.body);
-    jsonfile.writeFileSync(file, friends, { spaces: 2 });
+    jsonfile.writeFileSync(file, friends);
     res.json({
         name: friends[index].name,
         photo: friends[index].photo,
     });
 })
 
-function findFriend(self, friends) {
-    var friend = {};
-    for (var i in friends) {
-        var diff = 0;
-        for (var j in friends[i].scores) {
-
-            diff += Math.abs(Number(self.scores[j]) - Number(friends[i].scores[j]));
-        }
-        if (friend.diff === undefined) {
-            friend.diff = diff;
-            friend.index = i;
-        } else {
-            if (diff < friend.diff) {
-                friend.diff = diff;
-                friend.index = i;
-            }
-        }
-    }
-    console.log(friend);
-    return friend.index;
+function scoreMatch(user, friends) {
+ 
 }
 
 module.exports = router;
